@@ -8,6 +8,8 @@
 #include <unordered_map>
 #include <map>
 #include <queue>
+#include <string>
+#include <sstream>
 
 namespace bf {
 template <class T>
@@ -58,6 +60,9 @@ using priority_queue = std::priority_queue<T, std::vector<T, allocator<T>>, C>;
 
 using string = std::basic_string<char, std::char_traits<char>, allocator<char>>;
 using wstring = std::basic_string<wchar_t, std::char_traits<wchar_t>, allocator<wchar_t>>;
+
+using stringstream = std::basic_stringstream<char, std::char_traits<char>, allocator<char>>;
+using wstringstream = std::basic_stringstream<wchar_t, std::char_traits<wchar_t>, allocator<wchar_t>>;
 
 template <class T>
 struct deleter {

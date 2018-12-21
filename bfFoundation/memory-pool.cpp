@@ -1,12 +1,11 @@
 #include "memory-pool.h"
 
-// todo : assert 2 throw
-
 namespace bf {
 MemoryPool* Pool = nullptr;
 
 MemoryBucket::MemoryBucket(unsigned long size) : alloc_size(size), alloc_count(0) {
-	assert(alloc_size > BF_MEMORY_ALLOCATION_ALIGNMENT);
+	if (alloc_size < BF_MEMORY_ALLOCATION_ALIGNMENT)
+		throw std::bad_alloc();
 }
 
 MallocInfo* MemoryBucket::Pop() {
@@ -16,7 +15,8 @@ MallocInfo* MemoryBucket::Pop() {
 		mem = reinterpret_cast<MallocInfo*>(aligned_alloc(alloc_size));
 	}
 	else {
-		assert(mem->alloc_size == 0);
+		if (mem->alloc_size != 0)
+			throw std::bad_alloc();
 	}
 
 	atomic::Increment(&alloc_count);
@@ -78,7 +78,8 @@ void MemoryPool::Deallocate(void* ptr, long extra_info) {
 
 	long real_size = atomic::Exchange(&header->alloc_size, 0); ///< 두번 해제 체크 위해
 
-	assert(real_size> 0);
+	if (real_size <= 0)
+		throw std::bad_alloc();
 
 	if (real_size > MAX_ALLOC_SIZE) {
 		aligned_free(header);
