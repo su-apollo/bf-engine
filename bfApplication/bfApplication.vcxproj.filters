@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{eea3c835-d3d3-48ca-9b34-7f1ac1752c5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src-gl">
+      <UniqueIdentifier>{9135665a-fe8e-4d12-a053-9ed9a75bc160}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src-glfw">
+      <UniqueIdentifier>{87fa52ee-d106-451c-94ad-411b89881002}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src-windows">
+      <UniqueIdentifier>{0dcbf7d8-2c22-4670-a044-826ca9f37559}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="app.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="app-base.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="app-context.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>src-windows</Filter>
+    </ClCompile>
+    <ClCompile Include="app-context-gl.cpp">
+      <Filter>src-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="app-gl.cpp">
+      <Filter>src-gl</Filter>
+    </ClCompile>
+    <ClCompile Include="glfw-context.cpp">
+      <Filter>src-glfw</Filter>
+    </ClCompile>
+    <ClCompile Include="glfw-platform-context.cpp">
+      <Filter>src-glfw</Filter>
+    </ClCompile>
+    <ClCompile Include="glsl.cpp">
+      <Filter>src-gl</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="app.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="app-base.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="app-context.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="gfx-config.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="platform-context.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="app-context-gl.h">
+      <Filter>src-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="app-gl.h">
+      <Filter>src-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="glfw-context.h">
+      <Filter>src-glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="glfw-platform-context.h">
+      <Filter>src-glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="gl-api.h">
+      <Filter>src-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="glsl.h">
+      <Filter>src-gl</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
