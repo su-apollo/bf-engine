@@ -1,9 +1,8 @@
 #pragma once
-#include "gl-api.h"
-#include "gfx-config.h"
-#include "app-context.h"
-
-#include <allocator.hpp>
+#include "gl-api.hpp"
+#include "gfx-config.hpp"
+#include "app-context.hpp"
+#include "allocator.hpp"
 
 namespace bf {
 struct GLConfig : public GfxConfig {

@@ -1,7 +1,6 @@
-#include "app-base.h"
-#include "app-context.h"
+#include "app-base.hpp"
+#include "app-context.hpp"
 
-#include <memory-pool.h>
 #include <Windows.h>
 #include <iostream>
 #include <io.h>
@@ -29,7 +28,6 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	std::cout << "Hello World!" << std::endl;
 
-	bf::Pool = new bf::MemoryPool;
 	bf::AppBase* app = bf::MakeApp();
 
 	const int width = 1280;
@@ -39,7 +37,6 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	app->MainLoop();
 
 	delete app;
-	delete bf::Pool;
 
 	// Exit program
 	exit(EXIT_SUCCESS);

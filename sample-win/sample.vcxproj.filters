@@ -14,7 +14,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sample-gl.h">
+    <ClInclude Include="sample-gl.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

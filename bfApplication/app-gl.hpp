@@ -1,5 +1,5 @@
 #pragma once
-#include "app.h"
+#include "app.hpp"
 
 namespace bf {
 class AppGL : public App {

@@ -1,5 +1,5 @@
 #pragma once
-#include "app-context-gl.h"
+#include "app-context-gl.hpp"
 
 #include <GL/glew.h>
 #ifdef _WIN32

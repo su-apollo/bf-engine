@@ -1,5 +1,5 @@
 #pragma once
-#include "app-base.h"
+#include "app-base.hpp"
 
 namespace bf {
 class App : public AppBase {

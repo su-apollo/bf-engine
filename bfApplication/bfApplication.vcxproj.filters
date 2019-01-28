@@ -42,39 +42,42 @@
     <ClCompile Include="glsl.cpp">
       <Filter>src-gl</Filter>
     </ClCompile>
+    <ClCompile Include="allocator.hpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app.h">
+    <ClInclude Include="app.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="app-base.h">
+    <ClInclude Include="app-base.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="app-context.h">
+    <ClInclude Include="app-context.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="gfx-config.h">
+    <ClInclude Include="gfx-config.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="platform-context.h">
+    <ClInclude Include="platform-context.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="app-context-gl.h">
-      <Filter>src-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="app-gl.h">
-      <Filter>src-gl</Filter>
-    </ClInclude>
-    <ClInclude Include="glfw-context.h">
+    <ClInclude Include="glfw-context.hpp">
       <Filter>src-glfw</Filter>
     </ClInclude>
-    <ClInclude Include="glfw-platform-context.h">
+    <ClInclude Include="glfw-platform-context.hpp">
       <Filter>src-glfw</Filter>
     </ClInclude>
-    <ClInclude Include="gl-api.h">
+    <ClInclude Include="app-context-gl.hpp">
       <Filter>src-gl</Filter>
     </ClInclude>
-    <ClInclude Include="glsl.h">
+    <ClInclude Include="app-gl.hpp">
+      <Filter>src-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="gl-api.hpp">
+      <Filter>src-gl</Filter>
+    </ClInclude>
+    <ClInclude Include="glsl.hpp">
       <Filter>src-gl</Filter>
     </ClInclude>
   </ItemGroup>

@@ -84,14 +84,11 @@
     <ClCompile Include="sample-gl.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sample-gl.h" />
+    <ClInclude Include="sample-gl.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\bfApplication\bfApplication.vcxproj">
       <Project>{b71e1530-8152-4ce2-8e31-52b7d294f504}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\bfFoundation\bfFoundation.vcxproj">
-      <Project>{02b5ffc3-bfc9-46bc-94d2-3f558ffc647d}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

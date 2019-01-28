@@ -1,6 +1,5 @@
 #pragma once
-#include <allocator.hpp>
-//#include <memory-pool.h>
+#include "allocator.hpp"
 
 namespace bf {
 struct PointerActionType {
@@ -58,7 +57,7 @@ public:
 	virtual bool CharacterInput(unsigned char c) = 0;
 };
 
-class PlatformContext /*: public PooledAllocatable*/ {
+class PlatformContext {
 public:
 	virtual bool IsAppRunning() = 0;
 	virtual void RequestExit() = 0;

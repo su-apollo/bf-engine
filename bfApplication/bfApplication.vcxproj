@@ -51,7 +51,7 @@
       <WarningLevel>Level4</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\bfFoundation\;$(SolutionDir)\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -68,7 +68,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <AdditionalIncludeDirectories>$(SolutionDir)\..\bfFoundation\;$(SolutionDir)\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -81,6 +81,7 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="allocator.hpp" />
     <ClCompile Include="app-base.cpp" />
     <ClCompile Include="app-context-gl.cpp" />
     <ClCompile Include="app-context.cpp" />
@@ -92,22 +93,17 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app-base.h" />
-    <ClInclude Include="app-context-gl.h" />
-    <ClInclude Include="app-context.h" />
-    <ClInclude Include="app-gl.h" />
-    <ClInclude Include="app.h" />
-    <ClInclude Include="gfx-config.h" />
-    <ClInclude Include="gl-api.h" />
-    <ClInclude Include="glfw-context.h" />
-    <ClInclude Include="glfw-platform-context.h" />
-    <ClInclude Include="glsl.h" />
-    <ClInclude Include="platform-context.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\bfFoundation\bfFoundation.vcxproj">
-      <Project>{02b5ffc3-bfc9-46bc-94d2-3f558ffc647d}</Project>
-    </ProjectReference>
+    <ClInclude Include="app-base.hpp" />
+    <ClInclude Include="app-context-gl.hpp" />
+    <ClInclude Include="app-context.hpp" />
+    <ClInclude Include="app-gl.hpp" />
+    <ClInclude Include="app.hpp" />
+    <ClInclude Include="gfx-config.hpp" />
+    <ClInclude Include="gl-api.hpp" />
+    <ClInclude Include="glfw-context.hpp" />
+    <ClInclude Include="glfw-platform-context.hpp" />
+    <ClInclude Include="glsl.hpp" />
+    <ClInclude Include="platform-context.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

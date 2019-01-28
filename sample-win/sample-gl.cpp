@@ -1,4 +1,4 @@
-#include "sample-gl.h"
+#include "sample-gl.hpp"
 
 SampleGL::SampleGL() {
 }

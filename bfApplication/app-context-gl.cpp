@@ -1,4 +1,4 @@
-#include "app-context-gl.h"
+#include "app-context-gl.hpp"
 
 namespace bf {
 AppContextGL::AppContextGL(const PlatformInfo& info) 

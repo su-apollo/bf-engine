@@ -1,6 +1,6 @@
 #pragma once
-#include <app-gl.h>
-#include <glsl.h>
+#include <app-gl.hpp>
+#include <glsl.hpp>
 
 class SampleGL : public bf::AppGL {
 public:

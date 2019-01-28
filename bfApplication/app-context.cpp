@@ -1,4 +1,4 @@
-#include "app-context.h"
+#include "app-context.hpp"
 
 namespace bf {
 void AppContext::ContextInitRendering() {

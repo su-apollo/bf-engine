@@ -1,4 +1,4 @@
-#include "glsl.h"
+#include "glsl.hpp"
 
 //#include <cstdio>
 //#include <cstdlib>

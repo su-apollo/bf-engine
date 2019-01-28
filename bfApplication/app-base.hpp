@@ -1,8 +1,8 @@
 #pragma once
-#include "app-context.h"
-#include "platform-context.h"
+#include "app-context.hpp"
+#include "platform-context.hpp"
+#include "allocator.hpp"
 
-#include <allocator.hpp>
 #include <thread>
 
 namespace bf {

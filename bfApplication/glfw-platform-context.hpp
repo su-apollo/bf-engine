@@ -1,7 +1,7 @@
 #pragma once
-#include "platform-context.h"
+#include "platform-context.hpp"
+#include "allocator.hpp"
 
-#include <allocator.hpp>
 #include <GL/glew.h>
 #ifdef _WIN32
 #include <GL/wglew.h>

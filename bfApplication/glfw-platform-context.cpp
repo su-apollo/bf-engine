@@ -1,4 +1,4 @@
-#include "glfw-platform-context.h"
+#include "glfw-platform-context.hpp"
 
 #include <cstdlib>
 
