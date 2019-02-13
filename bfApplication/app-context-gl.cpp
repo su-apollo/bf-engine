@@ -1,6 +1,7 @@
 #include "app-context-gl.hpp"
 
 namespace bf {
+/*
 AppContextGL::AppContextGL(const PlatformInfo& info) 
 : AppContext(info), window_width(0), window_height(0) {
 }
@@ -14,4 +15,5 @@ void AppContextGL::PlatformReshape(const int32_t w, const int32_t h) {
 
 	// todo : frame buffer
 }
+*/
 }

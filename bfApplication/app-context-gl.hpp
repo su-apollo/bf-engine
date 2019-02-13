@@ -5,6 +5,7 @@
 #include "allocator.hpp"
 
 namespace bf {
+/*
 struct GLConfig : public GfxConfig {
 	GLConfig(const GfxConfig& gfx
 	, const GLAPIVersion& api = GLAPIVersionES2())
@@ -35,4 +36,5 @@ protected:
 	int32_t window_width;
 	int32_t window_height;
 };
+*/
 }

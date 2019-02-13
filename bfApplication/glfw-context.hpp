@@ -9,6 +9,7 @@
 #include <GLFW/glfw3.h>
 
 namespace bf {
+/*
 class GLFWContextGL : public AppContextGL {
 public:
 	GLFWContextGL(const GLConfig& conf, const PlatformInfo& info);
@@ -29,4 +30,5 @@ public:
 private:
 	shared_ptr<GLFWwindow> window;
 };
+*/
 }

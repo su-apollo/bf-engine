@@ -80,5 +80,11 @@
     <ClInclude Include="glsl.hpp">
       <Filter>src-gl</Filter>
     </ClInclude>
+    <ClInclude Include="platform.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="types.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

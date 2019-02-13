@@ -2,16 +2,23 @@
 #include "app-base.hpp"
 
 namespace bf {
-class App : public AppBase {
-public:
-	virtual void InitUI();
-	virtual void DrawUI();
+class AppPlatformBase {
+protected:
+	virtual bool PlatformInitRendering() = 0;
+	virtual void PlatformInitUI() = 0;
+	virtual void PlatformShutdownRendering() = 0;
+};
 
+class AppUIBase {
+};
+
+class App : public BasicApp, public AppPlatformBase {
+public:
 	virtual void MainLoop();
 
 protected:
-	bool PointerInput(InputDeviceType::Enum device, PointerActionType::Enum action, unsigned int modifiers, int count, PointerEvent* points, long long timestamp = 0);
-	bool KeyInput(unsigned int code, KeyActionType::Enum action);
+	bool PointerInput(InputDeviceType device, PointerActionType action, unsigned int modifiers, int count, PointerEvent* points, long long timestamp = 0);
+	bool KeyInput(unsigned int code, KeyActionType action);
 	bool CharacterInput(unsigned char c);
 
 	void MainThreadRenderStep();
@@ -19,25 +26,18 @@ protected:
 	void ShutdownRenderLoopObjects();
 	bool ConditionalLaunchRenderingThread();
 
-	virtual bool PlatformInitRendering() = 0;
-	bool BaseInitRendering();
-
-	virtual void PlatformInitUI() = 0;
-	void BaseInitUI();
-	
-	virtual void PlatformShutdownRendering();
-	void BaseShutdownRendering();
-
-	void BaseReshape(int w, int h);
-	void BaseUpdate();
-	void BaseDraw();
-	void BaseDrawUI();
-
 	void RequestThreadedRendering(bool threaded);
 	bool IsRenderThreadRunning();
 
 	void RenderLoopRenderFrame();
 
+	void ShutdownRendering();
+	void Update();
+	void Draw();
+	bool InitRendering();
+	void Reshape(const size_t w, const size_t h);
+
+protected:
 	// todo : thread pool
 	unique_ptr<std::thread> thread;
 
@@ -45,4 +45,18 @@ protected:
 	bool use_render_thread;
 	bool render_thread_running;
 };
+
+
+/*
+class App : public AppBase {
+public:
+
+
+protected:
+
+
+
+
+};
+*/
 }

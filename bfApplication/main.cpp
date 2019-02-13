@@ -28,12 +28,12 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	std::cout << "Hello World!" << std::endl;
 
-	bf::AppBase* app = bf::MakeApp();
+	auto app = bf::MakeApp();
 
 	const int width = 1280;
 	const int height = 720;
 
-	app->Initialize(bf::PlatformInfo(bf::PlatformCategory::PLAT_DESKTOP, bf::PlatformOS::OS_WINDOWS), width, height);
+	app->Initialize(width, height);
 	app->MainLoop();
 
 	delete app;

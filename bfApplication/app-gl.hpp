@@ -2,6 +2,8 @@
 #include "app.hpp"
 
 namespace bf {
+
+/*
 class AppGL : public App {
 public:
 	AppGL();
@@ -13,4 +15,5 @@ protected:
 	virtual bool PlatformInitRendering();
 	virtual void PlatformInitUI();
 };
+*/
 }

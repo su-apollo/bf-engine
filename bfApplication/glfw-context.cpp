@@ -1,6 +1,7 @@
 #include "glfw-context.hpp"
 
 namespace bf {
+/*
 GLFWContextGL::GLFWContextGL(const GLConfig& conf, const PlatformInfo& info)
 : AppContextGL(info) {
 	config = conf;
@@ -65,4 +66,5 @@ void GLFWContextGL::SetConfiguration(const GLConfig& conf) {
 
 	BindContext();
 }
+*/
 }

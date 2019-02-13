@@ -1,18 +1,12 @@
 #include "app.hpp"
 
 namespace bf {
-void App::InitUI() {
-}
-
-void App::DrawUI() {
-}
-
 void App::MainLoop() {
 	has_initialized_rendering = false;
 
 	while (platform->IsAppRunning()) {
 		platform->PollEvents(this);
-		BaseUpdate();
+		Update();
 		MainThreadRenderStep();
 	}
 
@@ -20,12 +14,12 @@ void App::MainLoop() {
 	ShutdownRenderLoopObjects();
 }
 
-bool App::PointerInput(InputDeviceType::Enum device, PointerActionType::Enum action, unsigned int modifiers, int count, PointerEvent* points, long long timestamp) {
+bool App::PointerInput(InputDeviceType device, PointerActionType action, unsigned int modifiers, int count, PointerEvent* points, long long timestamp) {
 	// todo :
 	return false;
 }
 
-bool App::KeyInput(unsigned int code, KeyActionType::Enum action) {
+bool App::KeyInput(unsigned int code, KeyActionType action) {
 	// todo :
 	return false;
 }
@@ -35,20 +29,21 @@ bool App::CharacterInput(unsigned char c) {
 	return false;
 }
 
+
 void App::MainThreadRenderStep() {
 	bool needs_reshape = false;
 
 	if (platform->IsContextLost()) {
 		if (has_initialized_rendering) {
 			HaltRenderingThread();
-			BaseShutdownRendering();
+			ShutdownRendering();
 			has_initialized_rendering = true;
 		}
 	}
 
 	if (platform->ShouldRender()) {
 		if (!has_initialized_rendering && !IsExiting()) {
-			has_initialized_rendering = BaseInitRendering();
+			has_initialized_rendering = InitRendering();
 			needs_reshape = true;
 		}
 		else if (platform->HasWindowResized()) {
@@ -58,7 +53,7 @@ void App::MainThreadRenderStep() {
 	}
 
 	if (needs_reshape && !IsExiting()) {
-		BaseReshape(context->Width(), context->Height());
+		Reshape(context->Width(), context->Height());
 	}
 
 	if (!ConditionalLaunchRenderingThread()) {
@@ -76,7 +71,7 @@ void App::HaltRenderingThread() {
 
 void App::ShutdownRenderLoopObjects() {
 	if (has_initialized_rendering) {
-		BaseShutdownRendering();
+		ShutdownRendering();
 		has_initialized_rendering = false;
 	}
 }
@@ -95,62 +90,6 @@ bool App::ConditionalLaunchRenderingThread() {
 	}
 }
 
-bool App::BaseInitRendering() {
-	context->ContextInitRendering();
-
-	if (!PlatformInitRendering()) {
-		return false;
-	}
-	InitRendering();
-	BaseInitUI();
-
-	return true;
-}
-
-void App::BaseInitUI() {
-	if (!title.empty())
-		platform->SetTitle(title);
-
-	PlatformInitUI();
-}
-
-void App::PlatformShutdownRendering() {
-}
-
-void App::BaseShutdownRendering() {
-	PlatformShutdownRendering();
-
-	ShutdownRendering();
-}
-
-void App::BaseReshape(int w, int h) {
-	context->PlatformReshape(w, h);
-
-	if ((w == window_width) && (h == window_height)) {
-		return;
-	}
-
-	window_width = w;
-	window_height = h;
-
-	// todo : input handler
-
-	Reshape(w, h);
-}
-
-void App::BaseUpdate() {
-	Update();
-}
-
-void App::BaseDraw() {
-	Draw();
-}
-
-void App::BaseDrawUI() {
-	// todo : draw fps
-	DrawUI();
-}
-
 void App::RequestThreadedRendering(bool threaded) {
 	use_render_thread = threaded;
 }
@@ -166,13 +105,82 @@ void App::RenderLoopRenderFrame() {
 		context->BeginFrame();
 		context->BeginScene();
 
-		BaseDraw();
+		Draw();
 
 		context->EndScene();
 
 		BaseDrawUI();
-		
+
 		context->EndFrame();
 	}
 }
+	
+void App::ShutdownRendering() {
+	PlatformShutdownRendering();
+
+	OnShutdownRendering();
+}
+
+void App::Update() {
+	OnUpdate();
+}
+
+void App::Draw() {
+	OnDraw();
+}
+
+bool App::InitRendering() {
+	context->ContextInitRendering();
+
+	if (!PlatformInitRendering()) {
+		return false;
+	}
+	OnInitRendering();
+	BaseInitUI();
+
+	return true;
+}
+
+void App::Reshape(const size_t w, const size_t h) {
+	context->PlatformReshape(w, h);
+
+	if ((w == window_width) && (h == window_height)) {
+		return;
+	}
+
+	window_width = w;
+	window_height = h;
+
+	// todo : input handler
+
+	OnReshape(w, h);
+}
+
+
+/*
+
+
+
+void App::BaseInitUI() {
+	if (!title.empty())
+		platform->SetTitle(title);
+
+	PlatformInitUI();
+}
+
+void App::PlatformShutdownRendering() {
+}
+
+
+
+
+
+
+void App::BaseDrawUI() {
+	// todo : draw fps
+	DrawUI();
+}
+
+
+*/
 }

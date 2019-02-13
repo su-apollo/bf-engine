@@ -3,6 +3,7 @@
 #include "glfw-platform-context.hpp"
 
 namespace bf {
+/*
 static GLConfig DefaultConfig(GLAPIVersionGL4_4(), 8, 8, 8, 8, 16, 0, 0);
 
 AppGL::AppGL() : App() {
@@ -40,4 +41,5 @@ bool AppGL::PlatformInitRendering() {
 void AppGL::PlatformInitUI() {
 	context->InitUI();
 }
+*/
 }

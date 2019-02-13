@@ -3,6 +3,7 @@
 #include <cstdlib>
 
 namespace bf{
+/*
 const char* DefaultTitle = "Hello World!";
 
 GLFWPlatformContext::GLFWPlatformContext() 
@@ -119,4 +120,5 @@ void GLFWPlatformContext::Focus(GLFWwindow* window, int32_t focused) {
 	//	sApp->focusChanged(pThis->mWindowIsFocused);
 	self->forced_render_count += 2;
 }
+*/
 }

@@ -104,6 +104,8 @@
     <ClInclude Include="glfw-platform-context.hpp" />
     <ClInclude Include="glsl.hpp" />
     <ClInclude Include="platform-context.hpp" />
+    <ClInclude Include="platform.hpp" />
+    <ClInclude Include="types.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

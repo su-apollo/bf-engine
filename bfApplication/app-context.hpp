@@ -1,36 +1,11 @@
 #pragma once
-//#include <memory-pool.h>
+#include "platform.hpp"
 
-namespace bf {
-struct PlatformCategory {
-	enum Enum {
-		PLAT_MOBILE, ///< Mobile/handheld platform
-		PLAT_DESKTOP ///< Desktop/laptop-class platform
-	};
-};
+namespace bf {	
 
-struct PlatformOS {
-	enum Enum {
-		OS_ANDROID, ///< Android
-		OS_IOS,		///< iPhone
-		OS_WINDOWS, ///< Windows
-		OS_LINUX,	///< "Desktop" Linux
-		OS_MACOSX	///< MacOS
-	};
-};
-
-struct PlatformInfo {
-	PlatformInfo(PlatformCategory::Enum c, PlatformOS::Enum o)
-	: category(c) 
-	, os(o) {}
-
-	PlatformCategory::Enum category; ///< Platform GPU category
-	PlatformOS::Enum os; ///< Platform OS
-};
-
-class AppContext /*: public PooledAllocatable*/ {
+class AppContextBase {
 public:
-	virtual ~AppContext() {}
+	virtual ~AppContextBase() = 0;
 
 	virtual bool BindContext() = 0;
 	virtual bool UnbindContext() = 0;
@@ -40,18 +15,19 @@ public:
 
 	virtual bool Swap() = 0;
 
-	virtual void ContextInitRendering();
-	virtual void PlatformReshape(const int w, const int h);
+public:
+	virtual void ContextInitRendering() {};
+	virtual void PlatformReshape(const size_t w, const size_t h) {};
 
-	virtual void BeginFrame();
-	virtual void BeginScene();
-	virtual void EndScene();
-	virtual void EndFrame();
+	virtual void BeginFrame() {};
+	virtual void BeginScene() {};
+	virtual void EndScene() {};
+	virtual void EndFrame() { Swap(); };
+};
 
-	virtual void InitUI();
-
-protected:
-	AppContext(const PlatformInfo& info) : platform_info(info) {}
-	PlatformInfo platform_info;
+template <class P>
+class BasicAppContext : public AppContextBase {
+	static_assert(std::is_convertible<P, Platform>::value, "Application platform type error.");
+public:
 };
 }

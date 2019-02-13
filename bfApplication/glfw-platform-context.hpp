@@ -10,6 +10,7 @@
 #include <GLFW/glfw3.h>
 
 namespace bf {
+/*
 class GLFWPlatformContext : public PlatformContext {
 public:
 	GLFWPlatformContext();
@@ -40,4 +41,5 @@ private:
 	bool window_is_focused;
 	int32_t forced_render_count;
 };
+*/
 }
