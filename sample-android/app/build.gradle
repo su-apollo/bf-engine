@@ -1,10 +1,15 @@
 apply plugin: 'com.android.application'
 
+//def platformVersion = 24      // openGLES 3.2 min api level
+ def platformVersion = 18    //openGLES 3 min api level
+// def platformVersion = 12    //openGLES 2 min api level
+
 android {
     compileSdkVersion 28
+
     defaultConfig {
         applicationId "com.example.blackfrog.sample"
-        minSdkVersion 15
+        minSdkVersion "${platformVersion}"
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
