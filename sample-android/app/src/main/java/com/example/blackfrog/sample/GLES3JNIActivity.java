@@ -14,17 +14,32 @@
  * limitations under the License.
  */
 
-package com.android.gles3jni;
+package com.example.blackfrog.sample;
 
-// Wrapper for native library
+import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.WindowManager;
 
-public class GLES3JNILib {
+import java.io.File;
 
-     static {
-          System.loadLibrary("gles3jni");
-     }
+public class GLES3JNIActivity extends Activity {
 
-     public static native void init();
-     public static native void resize(int width, int height);
-     public static native void step();
+    GLES3JNIView mView;
+
+    @Override protected void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        mView = new GLES3JNIView(getApplication());
+        setContentView(mView);
+    }
+
+    @Override protected void onPause() {
+        super.onPause();
+        mView.onPause();
+    }
+
+    @Override protected void onResume() {
+        super.onResume();
+        mView.onResume();
+    }
 }

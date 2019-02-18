@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.android.gles3jni;
+package com.example.blackfrog.sample;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
