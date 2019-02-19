@@ -58,7 +58,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\lib\vc2013x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -77,33 +77,20 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(SolutionDir)\..\lib\vc2013x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="allocator.hpp" />
     <ClCompile Include="app-base.cpp" />
-    <ClCompile Include="app-context-gl.cpp" />
-    <ClCompile Include="app-context.cpp" />
-    <ClCompile Include="app-gl.cpp" />
     <ClCompile Include="app.cpp" />
-    <ClCompile Include="glfw-context.cpp" />
-    <ClCompile Include="glfw-platform-context.cpp" />
-    <ClCompile Include="glsl.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app-base.hpp" />
-    <ClInclude Include="app-context-gl.hpp" />
-    <ClInclude Include="app-context.hpp" />
-    <ClInclude Include="app-gl.hpp" />
     <ClInclude Include="app.hpp" />
-    <ClInclude Include="gfx-config.hpp" />
-    <ClInclude Include="gl-api.hpp" />
-    <ClInclude Include="glfw-context.hpp" />
-    <ClInclude Include="glfw-platform-context.hpp" />
-    <ClInclude Include="glsl.hpp" />
-    <ClInclude Include="platform-context.hpp" />
+    <ClInclude Include="platform.hpp" />
+    <ClInclude Include="types.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

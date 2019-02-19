@@ -1,19 +1,13 @@
 #pragma once
-#include <app-gl.hpp>
-#include <glsl.hpp>
+#include <app.hpp>
 
-class SampleGL : public bf::AppGL {
+class SampleGL : public bf::App {
 public:
-	SampleGL();
-	~SampleGL();
+	SampleGL() = default;
+	~SampleGL() = default;
 
-	virtual void ConfigurationCallback() {}
-
-	void InitRendering();
-	void InitUI();
-	void Draw();
-	void DrawUI();
+	void OnInitRendering() {};
+	void OnDraw() {};
 
 private:
-	bf::shared_ptr<bf::GLSL> shader;
 };

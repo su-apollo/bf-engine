@@ -1,41 +1,39 @@
 #pragma once
-#include "app-context.hpp"
-#include "platform-context.hpp"
+#include "types.hpp"
+#include "platform.hpp"
 #include "allocator.hpp"
 
 #include <thread>
 
 namespace bf {
-class AppBase : public InputCallbacks {
+class AppBase {
 public:
-	AppBase();
-	virtual ~AppBase();
-
-	virtual bool Initialize(const PlatformInfo& info, int width, int height) = 0;
 	virtual void MainLoop() = 0;
+	virtual bool Initialize(const size_t width, const size_t height) = 0;
+};
 
-	virtual void InitRendering();
-	virtual void ShutdownRendering();
-	virtual void Update();
-	virtual void Draw();
-	virtual void Reshape(int width, int height);
+class BasicApp : public AppBase {
+public:
+	virtual void OnInitRendering() {};
+	virtual void OnShutdownRendering() {};
+	virtual void OnUpdate() {};
+	virtual void OnDraw() {};
+	virtual void OnReshape(const size_t width, const size_t height) {};
 
-	void SetTitle(const string& title);
-	const string& GetTitle();
+	void SetTitle(const string& t) { title = t; }
+	void AppRequestExit() { request_exit = true; }
+	bool IsExiting() { return request_exit; }
 
 protected:
-	void AppRequestExit();
-	bool IsExiting();
-
-	int window_width;
-	int window_height;
-
-	unique_ptr<PlatformContext> platform;
-	unique_ptr<AppContext> context;
 	string title;
 
 	bool request_exit;
+
+	size_t window_width;
+	size_t window_height;
+
+	BasicApp() : window_width(0), window_height(0), request_exit(false) {}
 };
 
-extern AppBase* MakeApp();
+extern BasicApp* MakeApp();
 }

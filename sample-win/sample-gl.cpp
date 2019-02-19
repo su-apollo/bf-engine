@@ -1,5 +1,7 @@
 #include "sample-gl.hpp"
 
+
+/*
 SampleGL::SampleGL() {
 }
 
@@ -7,7 +9,7 @@ SampleGL::~SampleGL() {
 }
 
 void SampleGL::InitRendering() {
-	SetTitle("GL Rendering");
+	//SetTitle("GL Rendering");
 
 	//shader = bf::MakeGLSLFromFile("", "");
 }
@@ -20,7 +22,8 @@ void SampleGL::Draw() {
 
 void SampleGL::DrawUI() {
 }
+*/
 
-bf::AppBase* bf::MakeApp() {
+bf::BasicApp* bf::MakeApp() {
 	return new SampleGL();
 }
