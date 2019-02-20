@@ -90,6 +90,8 @@
     <ClInclude Include="app-base.hpp" />
     <ClInclude Include="app.hpp" />
     <ClInclude Include="platform.hpp" />
+    <ClInclude Include="structures.hpp" />
+    <ClInclude Include="tokenizer.hpp" />
     <ClInclude Include="types.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,4 +1,5 @@
 #include "app-base.hpp"
+#include "tokenizer.hpp"
 
 #include <Windows.h>
 #include <iostream>
@@ -28,6 +29,13 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	std::cout << "Hello World!" << std::endl;
 
 	auto app = bf::MakeApp();
+
+	bf::string command_line(lpCmdLine);
+	bf::Tokenizer t(command_line);
+
+	while (t.NextToken()) {
+		app->AppendCommand(t.GetToken());
+	}
 
 	const int width = 1280;
 	const int height = 720;

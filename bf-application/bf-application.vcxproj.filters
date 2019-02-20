@@ -35,5 +35,11 @@
     <ClInclude Include="types.hpp">
       <Filter>src</Filter>
     </ClInclude>
+    <ClInclude Include="tokenizer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="structures.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

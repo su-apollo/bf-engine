@@ -1,7 +1,7 @@
 #pragma once
 #include "types.hpp"
+#include "structures.hpp"
 #include "platform.hpp"
-#include "allocator.hpp"
 
 #include <thread>
 
@@ -20,11 +20,13 @@ public:
 	virtual void OnDraw() {};
 	virtual void OnReshape(const size_t width, const size_t height) {};
 
+	void AppendCommand(string command) { command_line.push_back(command); }
 	void SetTitle(const string& t) { title = t; }
 	void AppRequestExit() { request_exit = true; }
 	bool IsExiting() { return request_exit; }
 
 protected:
+	vector<string> command_line;
 	string title;
 
 	bool request_exit;
