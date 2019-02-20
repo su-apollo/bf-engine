@@ -28,7 +28,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	std::cout << "Hello World!" << std::endl;
 
-	auto app = bf::MakeApp();
+	auto app = bf::MakeApplication();
 
 	bf::string command_line(lpCmdLine);
 	bf::Tokenizer t(command_line);
@@ -40,6 +40,7 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	const int width = 1280;
 	const int height = 720;
 
+	// todo : error catch
 	app->Initialize(width, height);
 	app->MainLoop();
 

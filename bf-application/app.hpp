@@ -2,6 +2,7 @@
 #include "app-base.hpp"
 
 namespace bf {
+/*
 class App : public BasicApp {
 public:
 	App() = default;
@@ -10,4 +11,5 @@ public:
 	virtual void MainLoop() {};
 	virtual bool Initialize(const size_t width, const size_t height) { return true; };
 };
+*/
 }

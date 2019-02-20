@@ -24,6 +24,6 @@ void SampleGL::DrawUI() {
 }
 */
 
-bf::BasicApp* bf::MakeApp() {
+bf::Applicable *bf::MakeApplication() {
 	return new SampleGL();
 }

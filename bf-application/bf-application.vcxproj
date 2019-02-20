@@ -85,11 +85,14 @@
     <ClCompile Include="app-base.cpp" />
     <ClCompile Include="app.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app-base.hpp" />
+    <ClInclude Include="app-context.hpp" />
     <ClInclude Include="app.hpp" />
     <ClInclude Include="platform.hpp" />
+    <ClInclude Include="renderer.hpp" />
     <ClInclude Include="structures.hpp" />
     <ClInclude Include="tokenizer.hpp" />
     <ClInclude Include="types.hpp" />

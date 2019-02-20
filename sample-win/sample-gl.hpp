@@ -2,7 +2,7 @@
 #include <app.hpp>
 #include <iostream>
 
-class SampleGL : public bf::App {
+class SampleGL : public bf::Application {
 public:
 	SampleGL() = default;
 	~SampleGL() = default;

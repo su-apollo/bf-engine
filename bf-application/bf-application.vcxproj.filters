@@ -21,6 +21,9 @@
     <ClCompile Include="allocator.hpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="renderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="app.hpp">
@@ -39,6 +42,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="structures.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="app-context.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

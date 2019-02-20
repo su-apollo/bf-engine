@@ -2,30 +2,39 @@
 #include "types.hpp"
 #include "structures.hpp"
 #include "platform.hpp"
+#include "Renderer.hpp"
+#include "app-context.hpp"
 
 #include <thread>
 
 namespace bf {
-class AppBase {
+class Applicable {
 public:
-	virtual void MainLoop() = 0;
+	virtual void AppendCommand(const string& command) = 0;
 	virtual bool Initialize(const size_t width, const size_t height) = 0;
+	virtual void MainLoop() = 0;
 };
 
-class BasicApp : public AppBase {
+class Application : public Applicable {
 public:
-	virtual void OnInitRendering() {};
-	virtual void OnShutdownRendering() {};
-	virtual void OnUpdate() {};
-	virtual void OnDraw() {};
-	virtual void OnReshape(const size_t width, const size_t height) {};
+	Application();
+	~Application();
 
-	void AppendCommand(string command) { command_line.push_back(command); }
-	void SetTitle(const string& t) { title = t; }
-	void AppRequestExit() { request_exit = true; }
-	bool IsExiting() { return request_exit; }
+	void AppendCommand(const string& command);
+	bool Initialize(const size_t width, const size_t height);
+	void MainLoop();
+	
+	void Update();
+	void SetTitle(const string& t);
+	void RequestExit();
+	bool IsExiting();
 
 protected:
+	Renderer renderer;
+
+	shared_ptr<OnAppBindable> binder;
+	shared_ptr<OnAppExecutable> executor;
+
 	vector<string> command_line;
 	string title;
 
@@ -33,9 +42,7 @@ protected:
 
 	size_t window_width;
 	size_t window_height;
-
-	BasicApp() : window_width(0), window_height(0), request_exit(false) {}
 };
 
-extern BasicApp* MakeApp();
+extern Applicable* MakeApplication();
 }
