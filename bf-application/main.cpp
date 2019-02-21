@@ -1,5 +1,7 @@
 #include "app-base.hpp"
 #include "tokenizer.hpp"
+#include "platform.hpp"
+#include "platform-context.hpp"
 
 #include <Windows.h>
 #include <iostream>
@@ -40,8 +42,9 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	const int width = 1280;
 	const int height = 720;
 
+	auto context = bf::make_shared<bf::AppContext<bf::Windows>>();
 	// todo : error catch
-	app->Initialize(width, height);
+	app->Initialize(context, width, height);
 	app->MainLoop();
 
 	delete app;

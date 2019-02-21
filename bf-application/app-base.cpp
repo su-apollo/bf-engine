@@ -11,7 +11,10 @@ void Application::AppendCommand(const string& command) {
 	command_line.push_back(command);
 }
 
-bool Application::Initialize(const size_t width, const size_t height) {
+bool Application::Initialize(const shared_ptr<OnAppContextable>& context, const size_t width, const size_t height) {
+	binder = context->MakeBinder();
+	executor = context->MakeExecutor();
+
 	return true; 
 }
 	

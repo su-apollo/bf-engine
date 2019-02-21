@@ -10,11 +10,18 @@ Renderer::Renderer()
 Renderer::~Renderer() {
 }
 
-bool Renderer::IsExiting() {
-	return true;
+void Renderer::RequestExit() {
+	request_exit = true;
 }
 
-bool Renderer::InitRendering() {
+bool Renderer::IsExiting() {
+	return request_exit;
+}
+
+bool Renderer::InitRendering(const shared_ptr<OnAppBindable>& binder) {
+
+	binder->InitRendering();
+
 	return true;
 }
 
@@ -36,7 +43,7 @@ void Renderer::MainThreadRenderStep(const shared_ptr<OnAppExecutable>& executor,
 
 	if (executor->ShouldRender()) {
 		if (!has_initialized_rendering && !IsExiting()) {
-			has_initialized_rendering = InitRendering();
+			has_initialized_rendering = InitRendering(binder);
 			needs_reshape = true;
 		}
 		else if (executor->HasWindowResized()) {

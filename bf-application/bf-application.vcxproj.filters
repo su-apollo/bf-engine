@@ -7,6 +7,9 @@
     <Filter Include="src-windows">
       <UniqueIdentifier>{0dcbf7d8-2c22-4670-a044-826ca9f37559}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src-glfw">
+      <UniqueIdentifier>{ef2577d3-eeae-4739-aa0f-8e9eb791468d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="app.cpp">
@@ -23,6 +26,9 @@
     </ClCompile>
     <ClCompile Include="renderer.cpp">
       <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="app-glfw.cpp">
+      <Filter>src-glfw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -48,6 +54,12 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="renderer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="app-glfw.hpp">
+      <Filter>src-glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="platform-context.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

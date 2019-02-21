@@ -11,7 +11,7 @@ namespace bf {
 class Applicable {
 public:
 	virtual void AppendCommand(const string& command) = 0;
-	virtual bool Initialize(const size_t width, const size_t height) = 0;
+	virtual bool Initialize(const shared_ptr<OnAppContextable>& context, const size_t width, const size_t height) = 0;
 	virtual void MainLoop() = 0;
 };
 
@@ -21,7 +21,7 @@ public:
 	~Application();
 
 	void AppendCommand(const string& command);
-	bool Initialize(const size_t width, const size_t height);
+	bool Initialize(const shared_ptr<OnAppContextable>& context, const size_t width, const size_t height);
 	void MainLoop();
 	
 	void Update();
@@ -32,6 +32,7 @@ public:
 protected:
 	Renderer renderer;
 
+	shared_ptr<OnAppContextable> context;
 	shared_ptr<OnAppBindable> binder;
 	shared_ptr<OnAppExecutable> executor;
 

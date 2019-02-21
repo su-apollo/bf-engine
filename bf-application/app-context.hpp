@@ -3,7 +3,7 @@
 
 namespace bf {
 // todo :
-class Observable {
+class InputObservable {
 public:
 	virtual bool PointerInput() = 0;
 	virtual bool KeyInput() = 0;
@@ -15,8 +15,10 @@ public:
 	virtual bool Bind() = 0;
 	virtual bool Unbind() = 0;
 
-	virtual size_t Width() = 0;
-	virtual size_t Height() = 0;
+	virtual const size_t Width() = 0;
+	virtual const size_t Height() = 0;
+
+	virtual void InitRendering() = 0;
 
 	virtual bool Swap() = 0;
 	virtual void BeginFrame() = 0;
@@ -30,13 +32,19 @@ public:
 	virtual bool IsRunning() = 0;
 	virtual bool RequestExit() = 0;
 
-	virtual bool PollEvents(Observable* observer) = 0;
+	virtual bool PollEvents(shared_ptr<InputObservable> observer) = 0;
 
 	virtual bool IsContextLost() = 0;
 	virtual bool IsContextBound() = 0;
 	virtual bool ShouldRender() = 0;
 	virtual bool HasWindowResized() = 0;
 
-	virtual bool SetTitle() = 0;
+	virtual bool SetTitle(const string& t) = 0;
+};
+
+class OnAppContextable {
+public:
+	virtual shared_ptr<OnAppBindable> MakeBinder() = 0;
+	virtual shared_ptr<OnAppExecutable> MakeExecutor() = 0;
 };
 }

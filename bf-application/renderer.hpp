@@ -9,8 +9,8 @@ public:
 	Renderer();
 	~Renderer();
 
+	void RequestExit();
 	bool IsExiting();
-	bool InitRendering();
 
 	void MainThreadRenderStep(const shared_ptr<OnAppExecutable>& executor, const shared_ptr<OnAppBindable>& binder);
 
@@ -20,8 +20,11 @@ protected:
 	void RenderLoopRenderFrame(const shared_ptr<OnAppBindable>& binder);
 
 	// todo :
+	bool InitRendering(const shared_ptr<OnAppBindable>& binder);
 	void Reshape(size_t w, size_t h);
 	void ShutdownRendering();
+
+	bool request_exit;
 
 	bool has_initialized_rendering;
 	bool use_render_thread;
