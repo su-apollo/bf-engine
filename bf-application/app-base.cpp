@@ -12,17 +12,26 @@ void Application::AppendCommand(const string& command) {
 }
 
 bool Application::Initialize(const shared_ptr<OnAppContextable>& context, const size_t width, const size_t height) {
-	binder = context->MakeBinder();
 	executor = context->MakeExecutor();
+	binder = context->MakeBinder();
+
+	if (!executor->Initialize(width, height))
+		return false;
 
 	return true; 
 }
 	
 void Application::MainLoop() {
+	renderer.MainThreadInitializeStep();
+
 	while (executor->IsRunning() && !IsExiting()) {
 		executor->PollEvents(nullptr);
 		Update();
+
+		renderer.MainThreadRenderStep(executor, binder);
 	}
+
+	renderer.MainThreadShutdownStep();
 }
 
 void Application::Update() {
@@ -33,6 +42,7 @@ void Application::SetTitle(const string& t) {
 }
 
 void Application::RequestExit() { 
+	executor->RequestExit();
 	request_exit = true; 
 }
 

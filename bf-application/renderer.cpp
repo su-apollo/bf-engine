@@ -19,7 +19,6 @@ bool Renderer::IsExiting() {
 }
 
 bool Renderer::InitRendering(const shared_ptr<OnAppBindable>& binder) {
-
 	binder->InitRendering();
 
 	return true;
@@ -27,6 +26,12 @@ bool Renderer::InitRendering(const shared_ptr<OnAppBindable>& binder) {
 
 bool Renderer::HaltRenderingThread() {
 	return true;
+}
+
+void Renderer::MainThreadInitializeStep() {
+	has_initialized_rendering = false;
+
+	InitRenderLoopObjects();
 }
 
 void Renderer::MainThreadRenderStep(const shared_ptr<OnAppExecutable>& executor, const shared_ptr<OnAppBindable>& binder) {
@@ -62,6 +67,11 @@ void Renderer::MainThreadRenderStep(const shared_ptr<OnAppExecutable>& executor,
 	}
 }
 
+void Renderer::MainThreadShutdownStep() {
+	HaltRenderingThread();
+	ShutdownRenderLoopObjects();
+}
+
 bool Renderer::ConditionalLaunchRenderingThread() {
 	if (use_render_thread) {
 		if (!render_thread_running) {
@@ -77,6 +87,10 @@ bool Renderer::ConditionalLaunchRenderingThread() {
 	}
 }
 
+void Renderer::InitRenderLoopObjects() {
+
+}
+
 void Renderer::RenderLoopRenderFrame(const shared_ptr<OnAppBindable>& binder) {
 	binder->BeginFrame();
 	binder->BeginScene();
@@ -84,6 +98,10 @@ void Renderer::RenderLoopRenderFrame(const shared_ptr<OnAppBindable>& binder) {
 	binder->EndScene();
 	binder->EndFrame();
 	binder->Swap();
+}
+
+void Renderer::ShutdownRenderLoopObjects() {
+
 }
 
 void Renderer::Reshape(size_t w, size_t h) {

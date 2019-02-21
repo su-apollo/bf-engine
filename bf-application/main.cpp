@@ -43,8 +43,10 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 	const int height = 720;
 
 	auto context = bf::make_shared<bf::AppContext<bf::Windows>>();
-	// todo : error catch
-	app->Initialize(context, width, height);
+
+	if (!app->Initialize(context, width, height))
+		exit(EXIT_FAILURE);
+
 	app->MainLoop();
 
 	delete app;

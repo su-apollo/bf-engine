@@ -29,8 +29,10 @@ public:
 
 class OnAppExecutable {
 public:
+	virtual bool Initialize(size_t width, size_t height, bool fullscreen = false) = 0;
+
 	virtual bool IsRunning() = 0;
-	virtual bool RequestExit() = 0;
+	virtual void RequestExit() = 0;
 
 	virtual bool PollEvents(shared_ptr<InputObservable> observer) = 0;
 
@@ -39,7 +41,7 @@ public:
 	virtual bool ShouldRender() = 0;
 	virtual bool HasWindowResized() = 0;
 
-	virtual bool SetTitle(const string& t) = 0;
+	virtual void SetTitle(const string& t) = 0;
 };
 
 class OnAppContextable {
