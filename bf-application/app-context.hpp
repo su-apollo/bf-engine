@@ -19,6 +19,10 @@ public:
 	virtual size_t Height() = 0;
 
 	virtual bool Swap() = 0;
+	virtual void BeginFrame() = 0;
+	virtual void BeginScene() = 0;
+	virtual void EndScene() = 0;
+	virtual void EndFrame() = 0;
 };
 
 class OnAppExecutable {
