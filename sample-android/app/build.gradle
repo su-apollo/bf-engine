@@ -8,7 +8,7 @@ android {
     compileSdkVersion 28
 
     defaultConfig {
-        applicationId "com.example.blackfrog.sample"
+        applicationId "com.blackfrog.sample"
         minSdkVersion "${platformVersion}"
         targetSdkVersion 28
         versionCode 1

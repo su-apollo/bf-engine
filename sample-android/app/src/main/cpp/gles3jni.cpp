@@ -238,9 +238,9 @@ void Renderer::render() {
 static Renderer* g_renderer = NULL;
 
 extern "C" {
-    JNIEXPORT void JNICALL Java_com_example_blackfrog_sample_GLES3JNILib_init(JNIEnv* env, jobject obj);
-    JNIEXPORT void JNICALL Java_com_example_blackfrog_sample_GLES3JNILib_resize(JNIEnv* env, jobject obj, jint width, jint height);
-    JNIEXPORT void JNICALL Java_com_example_blackfrog_sample_GLES3JNILib_step(JNIEnv* env, jobject obj);
+    JNIEXPORT void JNICALL Java_com_blackfrog_sample_GLES3JNILib_init(JNIEnv* env, jobject obj);
+    JNIEXPORT void JNICALL Java_com_blackfrog_sample_GLES3JNILib_resize(JNIEnv* env, jobject obj, jint width, jint height);
+    JNIEXPORT void JNICALL Java_com_blackfrog_sample_GLES3JNILib_step(JNIEnv* env, jobject obj);
 };
 
 #if !defined(DYNAMIC_ES3)
@@ -250,7 +250,7 @@ static GLboolean gl3stubInit() {
 #endif
 
 JNIEXPORT void JNICALL
-Java_com_example_blackfrog_sample_GLES3JNILib_init(JNIEnv* env, jobject obj) {
+Java_com_blackfrog_sample_GLES3JNILib_init(JNIEnv* env, jobject obj) {
     if (g_renderer) {
         delete g_renderer;
         g_renderer = NULL;
@@ -272,14 +272,14 @@ Java_com_example_blackfrog_sample_GLES3JNILib_init(JNIEnv* env, jobject obj) {
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_blackfrog_sample_GLES3JNILib_resize(JNIEnv* env, jobject obj, jint width, jint height) {
+Java_com_blackfrog_sample_GLES3JNILib_resize(JNIEnv* env, jobject obj, jint width, jint height) {
     if (g_renderer) {
         g_renderer->resize(width, height);
     }
 }
 
 JNIEXPORT void JNICALL
-Java_com_example_blackfrog_sample_GLES3JNILib_step(JNIEnv* env, jobject obj) {
+Java_com_blackfrog_sample_GLES3JNILib_step(JNIEnv* env, jobject obj) {
     if (g_renderer) {
         g_renderer->render();
     }

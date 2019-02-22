@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.blackfrog.sample;
+package com.blackfrog.sample;
 
 import android.content.Context;
 import android.graphics.PixelFormat;
