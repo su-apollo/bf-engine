@@ -5,7 +5,7 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sample", "sample.vcxproj", "{6F8F77EB-5E83-4287-900F-4B5EF806BD97}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bf-application", "..\bf-application\bf-application.vcxproj", "{B71E1530-8152-4CE2-8E31-52B7D294F504}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bf-application", "..\bf-application\vs2013\bf-application.vcxproj", "{B71E1530-8152-4CE2-8E31-52B7D294F504}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

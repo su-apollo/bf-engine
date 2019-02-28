@@ -12,54 +12,54 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="app.cpp">
+    <ClCompile Include="..\source\app.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="app-base.cpp">
+    <ClCompile Include="..\source\app-base.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="..\source\main.cpp">
       <Filter>src-windows</Filter>
     </ClCompile>
-    <ClCompile Include="allocator.hpp">
+    <ClCompile Include="..\header\allocator.hpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="renderer.cpp">
+    <ClCompile Include="..\source\renderer.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="app-glfw.cpp">
+    <ClCompile Include="..\source\app-glfw.cpp">
       <Filter>src-glfw</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="app.hpp">
+    <ClInclude Include="..\header\app.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="app-base.hpp">
+    <ClInclude Include="..\header\app-base.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="platform.hpp">
+    <ClInclude Include="..\header\platform.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="types.hpp">
+    <ClInclude Include="..\header\types.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="tokenizer.hpp">
+    <ClInclude Include="..\header\tokenizer.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="structures.hpp">
+    <ClInclude Include="..\header\structures.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="app-context.hpp">
+    <ClInclude Include="..\header\app-context.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="renderer.hpp">
+    <ClInclude Include="..\header\renderer.hpp">
       <Filter>src</Filter>
     </ClInclude>
-    <ClInclude Include="app-glfw.hpp">
+    <ClInclude Include="..\header\app-glfw.hpp">
       <Filter>src-glfw</Filter>
     </ClInclude>
-    <ClInclude Include="platform-context.hpp">
+    <ClInclude Include="..\header\platform-context.hpp">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

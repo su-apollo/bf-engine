@@ -1,5 +1,5 @@
 #pragma once
-#include <stdlib.h>
+#include <cstdlib>
 #include <memory>
 
 namespace bf {
@@ -7,7 +7,7 @@ namespace bf {
 	template <class T, class... Args>
 	T* bfnew(Args&&... args) {
 		//void* alloc = aligned_alloc(16, sizeof(T));
-		void* alloc = malloc(sizeof(T));
+		auto alloc = malloc(sizeof(T));
 		new (alloc)T(std::forward<Args>(args)...);
 		return reinterpret_cast<T*>(alloc);
 	}
@@ -38,7 +38,7 @@ namespace bf {
 		// todo : jemalloc
 		T* allocate(size_t n) {
 			//return static_cast<T*>(aligned_alloc(16, (int)n*sizeof(T)));
-			return static_cast<T*>(malloc((int)n*sizeof(T)));
+			return static_cast<T*>(malloc(static_cast<int>(n)*sizeof(T)));
 		}
 
 		// todo : jemalloc

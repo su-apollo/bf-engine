@@ -2,18 +2,18 @@
 #include <app.hpp>
 #include <iostream>
 
-class SampleGL : public bf::Application {
+class sample_gl final : public bf::application {
 public:
-	SampleGL() = default;
-	~SampleGL() = default;
+	sample_gl() = default;
+	~sample_gl() = default;
 
-	void OnInitRendering() {
-		for (auto command : command_line) {
+	void on_init_rendering() {
+		for (const auto& command : command_line_) {
 			std::cout << command << std::endl;
 		}
 	};
 
-	void OnDraw() {
+	void on_draw() {
 	};
 
 private:
