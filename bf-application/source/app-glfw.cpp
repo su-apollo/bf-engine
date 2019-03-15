@@ -1,7 +1,8 @@
 #include "app-glfw.hpp"
 
 namespace bf {
-glfw::glfw() = default;
+glfw::glfw() : has_resized_(false), forced_render_count_(0) {
+};
 
 glfw::~glfw() {
 	glfwTerminate();
@@ -34,12 +35,14 @@ bool glfw::initialize(size_t width, size_t height, const bool fullscreen) {
 		return false;
 	}
 
-	//setInputCallbacksGLFW(window.get());
-	//glfwSetWindowUserPointer(window.get(), this);
+	// todo :
+	//setInputCallbacksGLFW(window_.get());
+	glfwSetWindowUserPointer(window_.get(), this);
 
-	//glfwSetFramebufferSizeCallback(window.get(), reshape);
-	//glfwSetWindowFocusCallback(window.get(), focus);
-	return false;
+	glfwSetFramebufferSizeCallback(window_.get(), reshape);
+	glfwSetWindowFocusCallback(window_.get(), focus);
+	
+	return true;
 }
 
 bool glfw::is_running() {
@@ -64,10 +67,18 @@ bool glfw::is_context_bound() {
 }
 
 bool glfw::should_render() {
-	return false;
+	// todo : check forced render count
+	if (forced_render_count_ > 0)
+		--forced_render_count_;
+
+	return true;
 }
 
 bool glfw::has_window_resized() {
+	if (has_resized_) {
+		has_resized_ = false;
+		return true;
+	}
 	return false;
 }
 
@@ -122,4 +133,17 @@ void glfw::end_scene() {
 void glfw::end_frame() {
 
 }
+
+void glfw::reshape(GLFWwindow* window, int width, int height) {
+	auto self = static_cast<glfw*>(glfwGetWindowUserPointer(window));
+	self->has_resized_ = true;
+	self->forced_render_count_ += 2;
+}
+
+void glfw::focus(GLFWwindow* window, int focused) {
+	auto self = static_cast<glfw*>(glfwGetWindowUserPointer(window));
+	self->has_resized_ = focused != 0;
+	self->forced_render_count_ += 2;
+}
+
 }

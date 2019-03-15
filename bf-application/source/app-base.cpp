@@ -14,9 +14,11 @@ bool application::initialize(const shared_ptr<on_app_contextable>& context, cons
 	executor_ = context->make_executor();
 	binder_ = context->make_binder();
 
-	// todo :
 	if (!executor_->initialize(width, height))
 		return false;
+
+	binder_->bind();
+
 
 	return true; 
 }

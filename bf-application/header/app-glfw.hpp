@@ -42,5 +42,11 @@ public:
 
 private:
 	shared_ptr<GLFWwindow> window_;
+
+	bool has_resized_;
+	int forced_render_count_;
+
+	static void reshape(GLFWwindow* window, int width, int height);
+	static void focus(GLFWwindow* window, int focused);
 };
 }

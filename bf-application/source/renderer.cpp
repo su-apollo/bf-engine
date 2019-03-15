@@ -18,14 +18,14 @@ bool renderer::is_exiting() const {
 	return request_exit_;
 }
 
-// todo :
+// todo : 
 bool renderer::init_rendering(const shared_ptr<on_app_bindable>& binder) {
 	binder->init_rendering();
 
 	return true;
 }
 
-// todo :
+// todo : multi rendering
 bool renderer::halt_rendering_thread() {
 	return true;
 }
@@ -98,6 +98,8 @@ void renderer::init_render_loop_objects() {
 void renderer::render_loop_render_frame(const shared_ptr<on_app_bindable>& binder) {
 	binder->begin_frame();
 	binder->begin_scene();
+
+	// todo : draw methods
 
 	binder->end_scene();
 	binder->end_frame();
