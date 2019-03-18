@@ -1,5 +1,6 @@
 #pragma once
 #include "types.hpp"
+#include "structures.hpp"
 
 namespace bf {
 // todo :
@@ -10,7 +11,7 @@ public:
 	virtual bool character_input() = 0;
 };
 	
-class on_app_bindable {
+class app_bindable {
 public:
 	virtual bool bind() = 0;
 	virtual bool unbind() = 0;
@@ -27,7 +28,7 @@ public:
 	virtual void end_frame() = 0;
 };
 
-class on_app_executable {
+class app_executable {
 public:
 	virtual bool initialize(size_t width, size_t height, bool fullscreen = false) = 0;
 
@@ -44,9 +45,17 @@ public:
 	virtual void set_title(const string& t) = 0;
 };
 
-class on_app_contextable {
+class graphic_library {
 public:
-	virtual shared_ptr<on_app_bindable> make_binder() = 0;
-	virtual shared_ptr<on_app_executable> make_executor() = 0;
+	virtual bool initialize() = 0;
+	virtual void test_draw() = 0;
+	virtual void reshape(const float w, const float h) = 0;
+};
+
+class app_contextable {
+public:
+	virtual shared_ptr<app_bindable> make_binder() = 0;
+	virtual shared_ptr<app_executable> make_executor() = 0;
+	virtual shared_ptr<graphic_library> make_gl() = 0;
 };
 }

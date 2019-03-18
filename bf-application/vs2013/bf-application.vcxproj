@@ -52,13 +52,15 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir)\..\header\;$(ProjectDir)\..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)\..\..\library\vc2013x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -69,6 +71,8 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <AdditionalIncludeDirectories>$(ProjectDir)\..\header\;$(ProjectDir)\..\..\include\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>
+      </ForcedIncludeFiles>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -77,7 +81,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>$(ProjectDir)\..\..\library\vc2013x86\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glew32.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;glew32s.lib;glfw3.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -86,6 +90,7 @@
     <ClCompile Include="..\source\app.cpp" />
     <ClCompile Include="..\source\app-glfw.cpp" />
     <ClCompile Include="..\source\main.cpp" />
+    <ClCompile Include="..\source\renderer-opengl.cpp" />
     <ClCompile Include="..\source\renderer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -95,6 +100,7 @@
     <ClInclude Include="..\header\app-glfw.hpp" />
     <ClInclude Include="..\header\platform-context.hpp" />
     <ClInclude Include="..\header\platform.hpp" />
+    <ClInclude Include="..\header\renderer-opengl.hpp" />
     <ClInclude Include="..\header\renderer.hpp" />
     <ClInclude Include="..\header\structures.hpp" />
     <ClInclude Include="..\header\tokenizer.hpp" />

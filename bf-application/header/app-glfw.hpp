@@ -5,7 +5,7 @@
 #include <GLFW/glfw3.h>
 
 namespace bf {
-class glfw final : public on_app_bindable, public on_app_executable {
+class glfw final : public app_bindable, public app_executable {
 public:
 	glfw();
 	~glfw();

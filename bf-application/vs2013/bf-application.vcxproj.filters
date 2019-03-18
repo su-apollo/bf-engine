@@ -30,6 +30,9 @@
     <ClCompile Include="..\source\app-glfw.cpp">
       <Filter>src-glfw</Filter>
     </ClCompile>
+    <ClCompile Include="..\source\renderer-opengl.cpp">
+      <Filter>src-glfw</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\header\app.hpp">
@@ -61,6 +64,9 @@
     </ClInclude>
     <ClInclude Include="..\header\platform-context.hpp">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\renderer-opengl.hpp">
+      <Filter>src-glfw</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
