@@ -51,12 +51,12 @@ bool opengl::initialize()
 
 	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
-	vertex_buffer_ = glCreateShader(GL_VERTEX_SHADER);
 
-	glShaderSource(vertex_buffer_, 1, &vertex_shader_text, nullptr);
-	glCompileShader(vertex_buffer_);
+	vertex_shader_ = glCreateShader(GL_VERTEX_SHADER);
+	glShaderSource(vertex_shader_, 1, &vertex_shader_text, nullptr);
+	glCompileShader(vertex_shader_);
+
 	fragment_shader_ = glCreateShader(GL_FRAGMENT_SHADER);
-
 	glShaderSource(fragment_shader_, 1, &fragment_shader_text, nullptr);
 	glCompileShader(fragment_shader_);
 
@@ -71,7 +71,7 @@ bool opengl::initialize()
 	vcol_location_ = glGetAttribLocation(program_, "vCol");
 
 	glEnableVertexAttribArray(vpos_location_);
-	glVertexAttribPointer(vcol_location_, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, static_cast<void*>(nullptr));
+	glVertexAttribPointer(vpos_location_, 2, GL_FLOAT, GL_FALSE, sizeof(float) * 5, static_cast<void*>(nullptr));
 	glEnableVertexAttribArray(vcol_location_);
 	glVertexAttribPointer(vcol_location_, 3, GL_FLOAT, GL_FALSE, sizeof(float) * 5, reinterpret_cast<void*>(sizeof(float) * 2));
 
@@ -90,13 +90,11 @@ void opengl::test_draw()
     mat4x4 m, p, mvp;
 
     glViewport(0, 0, width_, height_);
-    glClear(GL_COLOR_BUFFER_BIT);
+	glClear(GL_COLOR_BUFFER_BIT);
     mat4x4_identity(m);
 
-    const auto time = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-
-    mat4x4_rotate_Z(m, m, static_cast<float>(time));
-    mat4x4_ortho(p, -ratio, ratio, -1.f, 1.f, 1.f, -1.f);
+    mat4x4_rotate_Z(m, m, 0);
+	mat4x4_ortho(p, -ratio, ratio, -1.f, 1.f, 1.f, -1.f);
     mat4x4_mul(mvp, p, m);
     glUseProgram(program_);
     glUniformMatrix4fv(mvp_location_, 1, GL_FALSE, reinterpret_cast<const GLfloat*>(mvp));
