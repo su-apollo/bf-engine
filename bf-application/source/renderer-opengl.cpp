@@ -44,7 +44,7 @@ static const char* fragment_shader_text =
 bool opengl::initialize()
 {
 	const auto err = glewInit();
-	if (GLEW_OK == err)
+	if (GLEW_OK != err)
 		return false;
 
 	glGenBuffers(1, &vertex_buffer_);
