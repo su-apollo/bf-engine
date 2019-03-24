@@ -10,7 +10,7 @@ set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g")
 set(OUT bf-application)
 set(INCLUDE
         ../header
-        ../../include/GL)
+        ../../include)
 set(SOURCE
         ../source/app.cpp
         ../source/app-base.cpp

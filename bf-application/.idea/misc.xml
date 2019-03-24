@@ -10,6 +10,7 @@
     </sourceRoots>
     <excludeRoots>
       <file path="$PROJECT_DIR$/vs2013" />
+      <file path="$PROJECT_DIR$/vs2017" />
     </excludeRoots>
   </component>
   <component name="JavaScriptSettings">
