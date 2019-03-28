@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{eea3c835-d3d3-48ca-9b34-7f1ac1752c5a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src-windows">
+      <UniqueIdentifier>{0dcbf7d8-2c22-4670-a044-826ca9f37559}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src-glfw">
+      <UniqueIdentifier>{ef2577d3-eeae-4739-aa0f-8e9eb791468d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\source\app.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\app-base.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\main.cpp">
+      <Filter>src-windows</Filter>
+    </ClCompile>
+    <ClCompile Include="..\header\allocator.hpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\renderer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\app-glfw.cpp">
+      <Filter>src-glfw</Filter>
+    </ClCompile>
+    <ClCompile Include="..\source\renderer-opengl.cpp">
+      <Filter>src-glfw</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\header\app.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\app-base.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\platform.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\types.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\tokenizer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\structures.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\app-context.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\renderer.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\app-glfw.hpp">
+      <Filter>src-glfw</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\platform-context.hpp">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\header\renderer-opengl.hpp">
+      <Filter>src-glfw</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
